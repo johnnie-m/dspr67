@@ -1,8 +1,9 @@
 import numpy as np
+import sys
 
 # Setting up random range:
 minvalue = 1
-maxvalue = 100
+maxvalue = 10000000
 
 
 def predict_number(number:int=1) -> int:
@@ -15,7 +16,7 @@ def predict_number(number:int=1) -> int:
     
     # The number to seek for:
     # (Un)quote the next line to fix(reset) random seed
-    #np.random.seed(1)
+    np.random.seed(1)
     number = np.random.randint(minvalue, maxvalue)
     
     # First try - the middle of the range:
@@ -29,7 +30,7 @@ def predict_number(number:int=1) -> int:
             # Moving the RIGHT guessing range bound
             # to previous guess value      
             upperLimit = predict_number
-            predict_number = int((upperLimit + lowerLimit) / 2)                   
+            predict_number = int((upperLimit + lowerLimit) / 2)                             
       
         elif predict_number < number:
             count += 1
@@ -50,8 +51,8 @@ def average_score(predict_number):
         
     # Array of 1000 random numbers to be guessed:
     # (Un)quote the next line to fix(reset) random seed
-    #np.random.seed(1)
-    random_array = np.random.randint(minvalue, maxvalue, size=(100))
+    np.random.seed(10)
+    random_array = np.random.randint(minvalue, maxvalue, size=(10000))
     
     # Applying prediction func to random array:
     count_array = list(map(predict_number, random_array))
@@ -61,4 +62,7 @@ def average_score(predict_number):
     print(f'Your method finds the number in: {score} tries at an average')
     return score
 
-average_score(predict_number)
+if __name__ == '__main__':
+    average_score(predict_number)
+
+sys.exit(0)
