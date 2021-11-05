@@ -51,7 +51,7 @@ def average_score(predict_number):
     # Array of 1000 random numbers to be guessed:
     # (Un)quote the next line to fix(reset) random seed
     #np.random.seed(1)
-    random_array = np.random.randint(minvalue, maxvalue, size=(10))
+    random_array = np.random.randint(minvalue, maxvalue, size=(100))
     
     # Applying prediction func to random array:
     count_array = list(map(predict_number, random_array))
