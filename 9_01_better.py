@@ -2,7 +2,7 @@ import numpy as np
 
 # Setting up random range:
 minvalue = 1
-maxvalue = 10
+maxvalue = 100
 
 
 def predict_number(number:int=1) -> int:
